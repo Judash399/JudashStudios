@@ -1,32 +1,76 @@
-body {
-    font-family: Arial, sans-serif;
+body, html {
     margin: 0;
-    padding: 0;
-    text-align: center;
+    height: 100%;
+    position: relative; /* Ensure positioning context for absolute positioning */
+}
+
+/* Full-page gradient background */
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #030e16, #120724); /* Gradient background */
+    overflow: hidden;
+    z-index: -2; /* Ensures the background is behind everything else */
+}
+
+/* Full-page canvas for dots */
+#dotsCanvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Ensures dots are behind the glass panel */
+}
+
+/* Container for glass panels */
+.glass-panel-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-auto-rows: min-content;
+    gap: 20px; /* Space between panels */
+    position: absolute;
+    top: 70px; /* Adjust starting position */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    max-width: 800px;
+    padding: 20px; /* Padding around the container */
+}
+
+/* Glass panel styling */
+.glass-panel {
+    padding: 20px;
+    border-radius: 25px;
+    transform: translateX(0%, 0%);
+    background: radial-gradient(circle, #230d49d2, #1a0a3400);
+    backdrop-filter: blur(20px); /* Blurs the background behind the panel */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional: adds shadow for a lifted effect */
+    color: white; /* Text color for readability */
+    max-width: 800px;
+    text-align: center; /* Center align text */
+}
+
+/* Optional: Override default text color if needed */
+text {
+    color: white;
+}
+p {
+    color: white;
+    font-family: "Moderustic", sans-serif;
+}
+
+h1 {
+    color: white;
+    font-family: "Moderustic", sans-serif;
 }
 
 header {
-    background-color: #4CAF50;
-    color: white;
-    padding: 10px 0;
-}
-
-main {
-    margin: 20px;
-}
-
-button {
-    padding: 10px 20px;
-    font-size: 16px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-footer {
-    background-color: #f1f1f1;
-    padding: 10px 0;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
+    font-family: "Moderustic", sans-serif;
+    color: rgb(255, 255, 255);
+    text-align: center;
+    font-size: 50px;
 }
